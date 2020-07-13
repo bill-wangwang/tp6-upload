@@ -10,7 +10,7 @@ use tp6\upload\Driver\Local;
 class Upload {
 
     //版本号
-    private $version = '1.0.0';
+    private $version = '1.0.4';
 
     private $_config = [
         'timeout'        => 180, //超时时间，单位秒
