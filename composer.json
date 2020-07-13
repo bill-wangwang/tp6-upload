@@ -10,7 +10,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "tp51\\upload\\": "src/tp6/upload"
+            "tp6\\upload\\": "src/tp6/upload"
         }
     },
     "authors": [
