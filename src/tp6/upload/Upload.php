@@ -232,17 +232,16 @@ class Upload {
                 continue;
             }
             $file = request()->file($fileId);
-            $info = $file->getInfo();
             //原始文件名
-            $name = $info['name'];
+            $name = $file->getOriginalName();
             //获取临时文件名
-            $fileName = $info['tmp_name'];
+            $fileName = $file->getRealPath();
             //获取文件后缀并转为小写，后缀不含.  hello.JPG 返回 jpg
-            $fileExt = pathinfo($info['name'], PATHINFO_EXTENSION);
+            $fileExt = $file->extension();
             //检查文件格式
             $this->_checkFormat($fileExt);
             //检查文件大小
-            $fileSize = $info['size'];
+            $fileSize = $file->getSize();
             $this->_checkSize($fileSize);
             //获取图片宽高
             try {
@@ -306,17 +305,16 @@ class Upload {
                 continue;
             }
             $file = request()->file($fileId);
-            $info = $file->getInfo();
             //原始文件名
-            $name = $info['name'];
+            $name = $file->getOriginalName();
             //获取临时文件名
-            $fileName = $info['tmp_name'];
+            $fileName = $file->getRealPath();
             //获取文件后缀并转为小写，后缀不含.  hello.JPG 返回 jpg
-            $fileExt = pathinfo($info['name'], PATHINFO_EXTENSION);
+            $fileExt = $file->extension();
             //检查文件格式
             $this->_checkFormat($fileExt, 'format');
             //检查文件大小
-            $fileSize = $info['size'];
+            $fileSize = $file->getSize();
             $this->_checkSize($fileSize, 'max_size');
             //获取文件内容
             $content = file_get_contents($fileName);
